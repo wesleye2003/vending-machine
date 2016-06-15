@@ -9,8 +9,8 @@ describe Machine do
       expect(Machine.instance_method(:initialize).arity).to eq 0
     end
 
-    xit "initializes with no money inserted" do
-
+    it "initializes with no money inserted" do
+      expect(machine.inserted_value).to eq 0
     end
   end
 ## Tracks total inserted value for purchase
