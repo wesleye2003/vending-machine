@@ -18,16 +18,12 @@ describe Machine do
 
 
   describe "#coin_is_valid" do
-    xit "takes a valid coin object" do
+    it "takes a valid coin object" do
       expect(machine.coin_is_valid(quarter)).to be true
     end
 
-    xit "does not take invalid coins" do
+    it "does not take invalid coins" do
       expect(machine.coin_is_valid(penny)).to be false
-    end
-
-    xit "does not take non-coins" do
-      expect(machine.coin_is_valid("rock")).to be false
     end
 
   end
