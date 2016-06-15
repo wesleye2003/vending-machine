@@ -1,6 +1,18 @@
 # Machine
+require_relative "../models/machine"
 
+describe Machine do
+  let(:machine) { Machine.new()}
 
+  describe "#initialize" do
+    it "takes no arguments" do
+      expect(Machine.instance_method(:initialize).arity).to eq 0
+    end
+
+    xit "initializes with no money inserted" do
+
+    end
+  end
 ## Tracks total inserted value for purchase
 
 
@@ -83,3 +95,4 @@
 #### Nothing is returned to the customer
 
 #### Total inserted value does not change
+end
