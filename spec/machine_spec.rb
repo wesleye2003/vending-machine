@@ -34,23 +34,6 @@ describe Machine do
     end
   end
 
-### WHEN INSERTED COIN IS VALID
-
-#### Assigns value to inserted coin
-
-#### Stores inserted coin
-
-#### Updates total inserted value
-
-
-## Rejects invalid coins
-
-### WHEN INSERTED COIN IS INVALID
-
-#### Does not store inserted coin
-
-#### Does not change total inserted value
-
 
 ## Has inventory quantities of individual products
 
