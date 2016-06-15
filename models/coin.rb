@@ -15,9 +15,20 @@ class Coin
     end
   end
 
-  def is_nickel(inserted_coin)
+  def self.is_dime(coin)
+    if coin.weight == 2.27 && coin.diameter == 17.91 && coin.thickness == 1.35
+      return true
+    else
+      return false
+    end
   end
 
-  def is_dime(inserted_coin)
+  def self.is_nickel(coin)
+    if coin.weight == 5 && coin.diameter == 21.21 && coin.thickness == 1.95
+      return true
+    else
+      return false
+    end
   end
+
 end

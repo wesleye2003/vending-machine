@@ -29,17 +29,27 @@ describe Coin do
     end
 
     it "identifies non-quarters" do
-      expect(Coin.is_quarter(Coin.new())).to be false
+      expect(Coin.is_quarter(nickel)).to be false
+    end
+  end
+
+  describe "#is_dime" do
+    it "identifies valid dimes" do
+      expect(Coin.is_dime(dime)).to be true
+    end
+
+    it "identifies non-dimes" do
+      expect(Coin.is_dime(quarter)).to be false
     end
   end
 
   describe "#is_nickel" do
-    xit "identifies valid nickels" do
+    it "identifies valid nickels" do
       expect(Coin.is_nickel(nickel)).to be true
     end
 
-    xit "identifies non-nickels" do
-      expect(Coin.is_nickel(Coin.new())).to be false
+    it "identifies non-nickels" do
+      expect(Coin.is_nickel(dime)).to be false
     end
   end
 end
