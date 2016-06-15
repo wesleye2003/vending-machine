@@ -6,4 +6,18 @@ class Coin
     @diameter = args.fetch(:diameter) { 0 }
     @thickness = args.fetch(:thickness) { 0 }
   end
+
+  def self.is_quarter(coin)
+    if coin.weight == 5.67 && coin.diameter == 24.26 && coin.thickness == 1.75
+      return true
+    else
+      return false
+    end
+  end
+
+  def is_nickel(inserted_coin)
+  end
+
+  def is_dime(inserted_coin)
+  end
 end

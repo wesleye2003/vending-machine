@@ -20,4 +20,14 @@ describe Coin do
       expect(coin.thickness).to eq 1.75
     end
   end
+
+  describe "#is_quarter" do
+    it "identifies valid quarters" do
+      expect(Coin.is_quarter(coin)).to be true
+    end
+
+    xit "identifies non-quarters" do
+
+    end
+  end
 end
