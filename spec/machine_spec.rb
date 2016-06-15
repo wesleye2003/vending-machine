@@ -1,27 +1,38 @@
 # Machine
+require_relative "../models/machine"
 
+describe Machine do
+  let(:machine) { Machine.new()}
+  let(:quarter) { Coin.new({weight: 5.67, diameter: 24.26, thickness: 1.75})}
+  let(:dime) { Coin.new({weight: 2.27, diameter: 17.91, thickness: 1.35})}
+  let(:nickel) { Coin.new({weight: 5, diameter: 21.21, thickness: 1.95})}
+  let(:penny) { Coin.new() }
 
-## Tracks total inserted value for purchase
+  describe "#initialize" do
+    it "initializes with no money inserted" do
+      expect(machine.inserted_value).to eq 0
+    end
 
+    it "initializes with no stored coins" do
+      expect(machine.coins).to eq({'quarter' => 0, 'dime' => 0, 'nickel' => 0})
+    end
+  end
 
-## Accepts valid coins
+  describe "#add_coin" do
+    it "stores the coin in the machine" do
+      machine.add_coin(quarter)
+      expect(machine.coins['quarter']).to eq 1
+    end
 
-### WHEN INSERTED COIN IS VALID
+    it "adds the coin's value to the inserted value" do
+      machine.add_coin(dime)
+      expect(machine.inserted_value).to eq 0.1
+    end
 
-#### Assigns value to inserted coin
-
-#### Stores inserted coin
-
-#### Updates total inserted value
-
-
-## Rejects invalid coins
-
-### WHEN INSERTED COIN IS INVALID
-
-#### Does not store inserted coin
-
-#### Does not change total inserted value
+    it "does not add invalid coins" do
+      expect(machine.add_coin(penny)).to be false
+    end
+  end
 
 
 ## Has inventory quantities of individual products
@@ -83,3 +94,4 @@
 #### Nothing is returned to the customer
 
 #### Total inserted value does not change
+end
