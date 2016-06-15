@@ -1,7 +1,6 @@
 # Machine
 require_relative "../models/machine"
 
-
 describe Machine do
   let(:machine) { Machine.new()}
   let(:quarter) { Coin.new({weight: 5.67, diameter: 24.26, thickness: 1.75})}
@@ -13,9 +12,11 @@ describe Machine do
     it "initializes with no money inserted" do
       expect(machine.inserted_value).to eq 0
     end
+
+    it "initializes with no stored coins" do
+      expect(machine.coins).to eq({quarters: 0, nickels: 0, dimes: 0})
+    end
   end
-
-
 
   describe "#coin_is_valid" do
     it "takes a valid coin object" do
@@ -25,9 +26,7 @@ describe Machine do
     it "does not take invalid coins" do
       expect(machine.coin_is_valid(penny)).to be false
     end
-
   end
-## Accepts valid coins
 
 ### WHEN INSERTED COIN IS VALID
 
