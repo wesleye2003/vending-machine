@@ -5,6 +5,8 @@ require_relative "../models/machine"
 describe Machine do
   let(:machine) { Machine.new()}
   let(:quarter) { Coin.new({weight: 5.67, diameter: 24.26, thickness: 1.75})}
+  let(:dime) { Coin.new({weight: 5.67, diameter: 24.26, thickness: 1.75})}
+  let(:nickel) { Coin.new({weight: 5, diameter: 21.21, thickness: 1.95})}
   let(:penny) { Coin.new() }
 
   describe "#initialize" do
@@ -13,17 +15,19 @@ describe Machine do
     end
   end
 
-  describe "#coin_is_taken" do
-    it "takes a valid coin object" do
-      expect(machine.coin_is_taken(quarter)).to be true
+
+
+  describe "#coin_is_valid" do
+    xit "takes a valid coin object" do
+      expect(machine.coin_is_valid(quarter)).to be true
     end
 
     xit "does not take invalid coins" do
-      expect(machine.coin_is_taken(penny)).to be false
+      expect(machine.coin_is_valid(penny)).to be false
     end
 
-    it "does not take non-coins" do
-      expect(machine.coin_is_taken("rock")).to be false
+    xit "does not take non-coins" do
+      expect(machine.coin_is_valid("rock")).to be false
     end
 
   end
