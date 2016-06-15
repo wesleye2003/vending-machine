@@ -10,7 +10,7 @@ describe Coin do
   end
 
   describe "#weight" do
-    xit "returns a coin's weight in grams" do
+    it "returns a coin's weight in grams" do
       expect(coin.weight).to eq 5.67
     end
   end
