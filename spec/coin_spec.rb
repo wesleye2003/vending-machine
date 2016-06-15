@@ -1,5 +1,5 @@
 require_relative "../models/coin"
-# Coin
+
 describe Coin do
   let(:coin) { Coin.new(5.67, 24.26, 1.75) }
 
@@ -22,12 +22,8 @@ describe Coin do
   end
 
   describe "#thickness" do
-    xit "returns a coin's thickness in millimeters" do
+    it "returns a coin's thickness in millimeters" do
+      expect(coin.thickness).to eq 1.75
     end
   end
 end
-
-
-## Know their weight
-
-## Know their size
