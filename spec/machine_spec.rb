@@ -26,16 +26,9 @@
 
 ## Has inventory quantities of individual products
 
-### Products have names
+### Quantities can be increased
 
-### Products have values
-
-### Products have quantities
-
-#### Quantities can be increased
-
-#### Quantities can be decreased
-
+### Quantities can be decreased
 
 ### Products can be selected for sale
 
