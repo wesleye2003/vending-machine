@@ -4,7 +4,7 @@ describe Coin do
   let(:coin) { Coin.new(5.67, 24.26, 1.75) }
 
   describe "#initialize" do
-    it "takes two arguments" do
+    it "takes three arguments" do
       expect(Coin.instance_method(:initialize).arity).to eq 3
     end
   end
