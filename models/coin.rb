@@ -7,7 +7,7 @@ class Coin
     @thickness = args.fetch(:thickness) { 0 }
   end
 
-  def self.type(coin)
+  def self.valid_type(coin)
     if coin.kind_of?(Coin) && coin.weight == 5.67 && coin.diameter == 24.26 && coin.thickness == 1.75
       return "quarter"
     elsif coin.kind_of?(Coin) && coin.weight == 2.27 && coin.diameter == 17.91 && coin.thickness == 1.35

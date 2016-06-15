@@ -5,24 +5,25 @@ class Machine
   attr_accessor :inserted_value, :coins
   def initialize
     @inserted_value = 0
-    @coins = {quarters: 0, nickels: 0, dimes: 0}
+    @coins = {'quarter' => 0, 'dime' => 0, 'nickel' => 0}
   end
 
-  def add_quarter
-    self.coins[:quarters] += 1
-    self.inserted_value += 0.25
-  end
+  def add_coin(coin)
+    coin_type = Coin.valid_type(coin)
 
-  def coin_is_valid(inserted_coin)
-    if Coin.is_quarter(inserted_coin)
-      return true
-    elsif Coin.is_nickel(inserted_coin)
-      return true
-    elsif Coin.is_dime(inserted_coin)
-      return true
+    if coin_type
+      self.coins[coin_type] += 1
+      ##### vvv NEEDS REFACTOR vvv #####
+      if coin_type == "quarter"
+        self.inserted_value += 0.25
+      elsif coin_type == "dime"
+        self.inserted_value += 0.1
+      elsif coin_type == "nickel"
+        self.inserted_value += 0.05
+      end
+      ##### ^^^ NEEDS REFACTOR ^^^ #####
     else
       return false
     end
   end
-
 end

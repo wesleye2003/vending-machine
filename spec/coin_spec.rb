@@ -23,21 +23,21 @@ describe Coin do
     end
   end
 
-  describe "#type" do
+  describe "#valid_type" do
     it "identifies valid quarters" do
-      expect(Coin.type(quarter)).to eq "quarter"
+      expect(Coin.valid_type(quarter)).to eq "quarter"
     end
 
     it "identifies valid dimes" do
-      expect(Coin.type(dime)).to eq "dime"
+      expect(Coin.valid_type(dime)).to eq "dime"
     end
 
     it "identifies valid nickels" do
-      expect(Coin.type(nickel)).to eq "nickel"
+      expect(Coin.valid_type(nickel)).to eq "nickel"
     end
 
     it "identifies non-coins" do
-      expect(Coin.type("rock")).to be false
+      expect(Coin.valid_type("rock")).to be false
     end
   end
 end

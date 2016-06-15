@@ -14,31 +14,23 @@ describe Machine do
     end
 
     it "initializes with no stored coins" do
-      expect(machine.coins).to eq({quarters: 0, nickels: 0, dimes: 0})
+      expect(machine.coins).to eq({'quarter' => 0, 'dime' => 0, 'nickel' => 0})
     end
   end
 
-  describe "#add_quarter" do
-    before(:each) do
-      machine.add_quarter
-    end
-
+  describe "#add_coin" do
     it "stores the coin in the machine" do
-      expect(machine.coins[:quarters]).to eq 1
+      machine.add_coin(quarter)
+      expect(machine.coins['quarter']).to eq 1
     end
 
-    it "adds 25 cents to the inserted value" do
-      expect(machine.inserted_value).to eq 0.25
-    end
-  end
-
-  describe "#coin_is_valid" do
-    it "takes a valid coin object" do
-      expect(machine.coin_is_valid(quarter)).to be true
+    it "adds the coin's value to the inserted value" do
+      machine.add_coin(dime)
+      expect(machine.inserted_value).to eq 0.1
     end
 
-    it "does not take invalid coins" do
-      expect(machine.coin_is_valid(penny)).to be false
+    it "does not add invalid coins" do
+      expect(machine.add_coin(penny)).to be false
     end
   end
 
