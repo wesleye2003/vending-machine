@@ -18,6 +18,20 @@ describe Machine do
     end
   end
 
+  describe "#add_quarter" do
+    before(:each) do
+      machine.add_quarter
+    end
+
+    it "stores the coin in the machine" do
+      expect(machine.coins[:quarters]).to eq 1
+    end
+
+    xit "adds 25 cents to the inserted value" do
+
+    end
+  end
+
   describe "#coin_is_valid" do
     it "takes a valid coin object" do
       expect(machine.coin_is_valid(quarter)).to be true

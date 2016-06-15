@@ -8,6 +8,10 @@ class Machine
     @coins = {quarters: 0, nickels: 0, dimes: 0}
   end
 
+  def add_quarter
+    self.coins[:quarters] += 1
+  end
+
   def coin_is_valid(inserted_coin)
     if Coin.is_quarter(inserted_coin)
       return true
