@@ -16,7 +16,8 @@ describe Coin do
   end
 
   describe "#diameter" do
-    xit "returns a coin's diameter in millimeters" do
+    it "returns a coin's diameter in millimeters" do
+      expect(coin.diameter).to eq 24.26
     end
   end
 
