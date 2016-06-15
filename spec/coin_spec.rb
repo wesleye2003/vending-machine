@@ -31,6 +31,10 @@ describe Coin do
     it "identifies non-quarters" do
       expect(Coin.is_quarter(nickel)).to be false
     end
+
+    it "does identifies non-coins" do
+      expect(Coin.is_quarter("rock")).to be false
+    end
   end
 
   describe "#is_dime" do
@@ -41,6 +45,10 @@ describe Coin do
     it "identifies non-dimes" do
       expect(Coin.is_dime(quarter)).to be false
     end
+
+    it "does identifies non-coins" do
+      expect(Coin.is_dime("rock")).to be false
+    end
   end
 
   describe "#is_nickel" do
@@ -50,6 +58,10 @@ describe Coin do
 
     it "identifies non-nickels" do
       expect(Coin.is_nickel(dime)).to be false
+    end
+
+    it "does identifies non-coins" do
+      expect(Coin.is_nickel("rock")).to be false
     end
   end
 end

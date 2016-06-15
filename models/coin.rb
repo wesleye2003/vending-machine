@@ -8,7 +8,7 @@ class Coin
   end
 
   def self.is_quarter(coin)
-    if coin.weight == 5.67 && coin.diameter == 24.26 && coin.thickness == 1.75
+    if coin.kind_of?(Coin) && coin.weight == 5.67 && coin.diameter == 24.26 && coin.thickness == 1.75
       return true
     else
       return false
@@ -16,7 +16,7 @@ class Coin
   end
 
   def self.is_dime(coin)
-    if coin.weight == 2.27 && coin.diameter == 17.91 && coin.thickness == 1.35
+    if coin.kind_of?(Coin) && coin.weight == 2.27 && coin.diameter == 17.91 && coin.thickness == 1.35
       return true
     else
       return false
@@ -24,7 +24,7 @@ class Coin
   end
 
   def self.is_nickel(coin)
-    if coin.weight == 5 && coin.diameter == 21.21 && coin.thickness == 1.95
+    if coin.kind_of?(Coin) && coin.weight == 5 && coin.diameter == 21.21 && coin.thickness == 1.95
       return true
     else
       return false
