@@ -26,8 +26,8 @@ describe Coin do
       expect(Coin.is_quarter(coin)).to be true
     end
 
-    xit "identifies non-quarters" do
-
+    it "identifies non-quarters" do
+      expect(Coin.is_quarter(Coin.new())).to be false
     end
   end
 end
