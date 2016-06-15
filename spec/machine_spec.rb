@@ -5,25 +5,27 @@ require_relative "../models/machine"
 describe Machine do
   let(:machine) { Machine.new()}
   let(:quarter) { Coin.new({weight: 5.67, diameter: 24.26, thickness: 1.75})}
+  let(:penny) { Coin.new() }
 
   describe "#initialize" do
-    it "takes no arguments" do
-      expect(Machine.instance_method(:initialize).arity).to eq 0
-    end
-
     it "initializes with no money inserted" do
       expect(machine.inserted_value).to eq 0
     end
   end
 
   describe "#coin_is_taken" do
-    it "takes a coin object" do
+    it "takes a valid coin object" do
       expect(machine.coin_is_taken(quarter)).to be true
+    end
+
+    xit "does not take invalid coins" do
+      expect(machine.coin_is_taken(penny)).to be false
     end
 
     it "does not take non-coins" do
       expect(machine.coin_is_taken("rock")).to be false
     end
+
   end
 ## Accepts valid coins
 
