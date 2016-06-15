@@ -27,8 +27,8 @@ describe Machine do
       expect(machine.coins[:quarters]).to eq 1
     end
 
-    xit "adds 25 cents to the inserted value" do
-
+    it "adds 25 cents to the inserted value" do
+      expect(machine.inserted_value).to eq 0.25
     end
   end
 

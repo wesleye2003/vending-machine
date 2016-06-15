@@ -10,6 +10,7 @@ class Machine
 
   def add_quarter
     self.coins[:quarters] += 1
+    self.inserted_value += 0.25
   end
 
   def coin_is_valid(inserted_coin)
