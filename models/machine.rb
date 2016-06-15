@@ -13,6 +13,7 @@ class Machine
 
     if coin_type
       self.coins[coin_type] += 1
+
       ##### vvv NEEDS REFACTOR vvv #####
       if coin_type == "quarter"
         self.inserted_value += 0.25
@@ -22,6 +23,7 @@ class Machine
         self.inserted_value += 0.05
       end
       ##### ^^^ NEEDS REFACTOR ^^^ #####
+
     else
       return false
     end
