@@ -10,8 +10,8 @@ describe Product do
   end
 
   describe "#name" do
-    xit "returns a product's name" do
-
+    it "returns a product's name" do
+      expect(product.name).to eq "Chips"
     end
   end
 
