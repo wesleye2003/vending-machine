@@ -16,8 +16,8 @@ describe Product do
   end
 
   describe "#price" do
-    xit "returns a product's price" do
-
+    it "returns a product's price" do
+      expect(product.price).to eq 1.5
     end
   end
 end
