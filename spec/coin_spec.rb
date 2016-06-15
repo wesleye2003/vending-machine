@@ -1,11 +1,11 @@
 require_relative "../models/coin"
 
 describe Coin do
-  let(:coin) { Coin.new(5.67, 24.26, 1.75) }
+  let(:coin) { Coin.new({weight: 5.67, diameter: 24.26, thickness: 1.75}) }
 
   describe "#initialize" do
-    it "takes two arguments" do
-      expect(Coin.instance_method(:initialize).arity).to eq 3
+    it "takes one argument" do
+      expect(Coin.instance_method(:initialize).arity).to eq 1
     end
   end
 
