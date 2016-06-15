@@ -1,8 +1,10 @@
 # Machine
 require_relative "../models/machine"
 
+
 describe Machine do
   let(:machine) { Machine.new()}
+  let(:quarter) { Coin.new({weight: 5.67, diameter: 24.26, thickness: 1.75})}
 
   describe "#initialize" do
     it "takes no arguments" do
@@ -13,9 +15,16 @@ describe Machine do
       expect(machine.inserted_value).to eq 0
     end
   end
-## Tracks total inserted value for purchase
 
+  describe "#coin_is_taken" do
+    it "takes a coin object" do
+      expect(machine.coin_is_taken(quarter)).to be true
+    end
 
+    it "does not take non-coins" do
+      expect(machine.coin_is_taken("rock")).to be false
+    end
+  end
 ## Accepts valid coins
 
 ### WHEN INSERTED COIN IS VALID

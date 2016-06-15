@@ -6,4 +6,12 @@ class Machine
   def initialize
     @inserted_value = 0
   end
+
+  def coin_is_taken(coin)
+    if coin.kind_of?(Coin)
+      return true
+    else
+      return false
+    end
+  end
 end
