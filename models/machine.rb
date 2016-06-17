@@ -29,4 +29,13 @@ class Machine
       return false
     end
   end
+
+  def add_product(product_to_add)
+    if product_to_add.kind_of?(Product)
+      self.products.push(product_to_add)
+    else
+      return false
+    end
+  end
+
 end

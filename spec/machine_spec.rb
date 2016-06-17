@@ -7,6 +7,7 @@ describe Machine do
   let(:dime) { Coin.new({weight: 2.27, diameter: 17.91, thickness: 1.35})}
   let(:nickel) { Coin.new({weight: 5, diameter: 21.21, thickness: 1.95})}
   let(:penny) { Coin.new() }
+  let(:chips) { Product.new({name: "Chips", price: 0.5}) }
 
   describe "#initialize" do
     it "initializes with no money inserted" do
@@ -40,12 +41,14 @@ describe Machine do
     end
 
     describe "#add_product" do
-      xit "adds a product object to a machine's inventory" do
-
+      it "adds a product object to a machine's inventory" do
+        machine.add_product(chips)
+        expect(machine.products).to eq([chips])
       end
 
-      xit "does not add non-product objects to a machine's inventory" do
-        r
+      it "does not add non-product objects to a machine's inventory" do
+        machine.add_product("chips")
+        expect(machine.products).to eq([])
       end
     end
   end
