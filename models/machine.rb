@@ -42,4 +42,8 @@ class Machine
     self.products.delete_at(self.products.index(product_to_remove))
   end
 
+  def in_stock?(selected_product)
+    self.products.select { |product| product == selected_product }.length > 0
+  end
+
 end

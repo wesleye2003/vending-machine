@@ -70,12 +70,12 @@ describe Machine do
     end
   end
 
-
-## Has inventory quantities of individual products
-
-### Quantities can be increased
-
-### Quantities can be decreased
+  describe "#in_stock?" do
+    it "determines whether or not a product is present in machine's inventory" do
+      machine.add_product(chips)
+      expect(machine.in_stock?(chips)).to be true
+    end
+  end
 
 ### Products can be selected for sale
 
