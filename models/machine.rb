@@ -49,6 +49,7 @@ class Machine
   def try_to_sell(selected_product)
     if self.in_stock?(selected_product) && self.inserted_value >= selected_product.price
       self.remove_product(selected_product)
+      self.inserted_value = 0
       # MAKE CHANGE
 
     elsif self.in_stock?(selected_product) && self.inserted_value < selected_product.price

@@ -90,8 +90,8 @@ describe Machine do
       expect(machine.products).to eq([chips, chips, chips, chips])
     end
 
-    xit "resets inserted value when a product is sold" do
-
+    it "resets inserted value when a product is sold" do
+      expect(machine.inserted_value).to eq(0)
     end
 
   end
