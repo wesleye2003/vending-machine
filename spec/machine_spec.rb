@@ -77,6 +77,25 @@ describe Machine do
     end
   end
 
+  describe "#try_to_sell" do
+    before(:each) do
+      5.times do
+        machine.add_product(chips)
+      end
+      machine.inserted_value = 0.5
+      machine.try_to_sell(chips)
+    end
+
+    it "sells a product that is in stock when enough money is inserted" do
+      expect(machine.products).to eq([chips, chips, chips, chips])
+    end
+
+    xit "resets inserted value when a product is sold" do
+
+    end
+
+  end
+
 ### Products can be selected for sale
 
 #### WHEN TOTAL INSERTED VALUE IS EQUAL TO SELECTED PRODUCT'S VALUE AND PRODUCT IS IN STOCK
