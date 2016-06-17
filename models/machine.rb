@@ -2,10 +2,11 @@ require_relative "coin"
 require_relative "product"
 
 class Machine
-  attr_accessor :inserted_value, :coins
+  attr_accessor :inserted_value, :coins, :products
   def initialize
     @inserted_value = 0
     @coins = {'quarter' => 0, 'dime' => 0, 'nickel' => 0}
+    @products = []
   end
 
   def add_coin(coin)

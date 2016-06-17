@@ -34,6 +34,22 @@ describe Machine do
     end
   end
 
+  describe "#products" do
+    it "starts as an empty array" do
+      expect(machine.products).to eq([])
+    end
+
+    describe "#add_product" do
+      xit "adds a product object to a machine's inventory" do
+
+      end
+
+      xit "does not add non-product objects to a machine's inventory" do
+        r
+      end
+    end
+  end
+
 
 ## Has inventory quantities of individual products
 
