@@ -38,4 +38,8 @@ class Machine
     end
   end
 
+  def remove_product(product_to_remove)
+    self.products.delete_at(self.products.index(product_to_remove))
+  end
+
 end

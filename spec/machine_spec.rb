@@ -51,6 +51,23 @@ describe Machine do
         expect(machine.products).to eq([])
       end
     end
+
+    describe "#remove_product" do
+      before(:each) do
+        machine.add_product(chips)
+      end
+
+      it "removes a product object from a machine's inventory" do
+        machine.remove_product(chips)
+        expect(machine.products).to eq([])
+      end
+
+      it "only removes one product from the machine when duplicates are present" do
+        machine.add_product(chips)
+        machine.remove_product(chips)
+        expect(machine.products).to eq([chips])
+      end
+    end
   end
 
 
