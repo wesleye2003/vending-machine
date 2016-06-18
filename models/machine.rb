@@ -48,18 +48,34 @@ class Machine
 
   def try_to_sell(selected_product)
     if self.in_stock?(selected_product) && self.inserted_value >= selected_product.price
+      self.inserted_value -= selected_product.price
       self.remove_product(selected_product)
-      self.inserted_value = 0
-      # MAKE CHANGE
+      # RETURN INSERTED VALUE
 
     elsif self.in_stock?(selected_product) && self.inserted_value < selected_product.price
-
-    # elsif self.in_stock?(selected_product)
-
+      # DO DISPLAY THING
     else
-
+      return false
     end
 
   end
+
+  # def return_inserted_value
+  #   if self.inserted_value == 0
+  #     return true
+  #   else
+  #     if self.inserted_value - 0.25 >= 0 && self.coins['quarter'] > 0
+  #       self.inserted_value -= 0.25
+  #       self.coins['quarter'] -= 1
+  #     elsif self.inserted_value - 0.1 >= 0 && self.coins['dime'] > 0
+  #       self.inserted_value -= 0.1
+  #       self.coins['dime'] -= 1
+  #     elsif self.inserted_value - 0.05 >= 0 && self.coins['nickel'] > 0
+  #       self.inserted_value -= 0.05
+  #       self.coins['nickel'] -= 1
+  #     end
+  #     self.return_inserted_value
+  #   end
+  # end
 
 end

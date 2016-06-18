@@ -94,8 +94,8 @@ describe Machine do
           expect(machine.products).to eq([chips, chips, chips, chips])
         end
 
-        it "resets inserted value when a product is sold" do
-          expect(machine.inserted_value).to eq(0)
+        it "adjusts inserted value when a product is sold" do
+          expect(machine.inserted_value).to eq(0.25)
         end
 
         context "and more than enough money was inserted" do
@@ -106,12 +106,18 @@ describe Machine do
       end
 
       context "and less than enough money is inserted" do
+        before(:each) do
+          machine.add_product(chips)
+          machine.add_coin(quarter)
+          machine.try_to_sell(chips)
+        end
+
         xit "does not sell the product" do
-          expect(machine.products).to eq([chips, chips, chips, chips, chips])
+          expect(machine.products).to eq([chips])
         end
 
         xit "does not change the amount of money inserted" do
-
+          expect(machine.inserted_value).to eq 0.25
         end
       end
     end
@@ -128,29 +134,34 @@ describe Machine do
 
   end
 
-#### WHEN TOTAL INSERTED VALUE IS GREATER THAN SELECTED PRODUCT'S VALUE AND PRODUCT IS IN STOCK
+  xdescribe "#return_inserted_value" do
+    context "if there is an inserted value" do
+      before(:each) do
+        machine.add_coin(quarter)
+        machine.add_coin(dime)
+        machine.add_coin(nickel)
+      end
 
-##### Product quantity decreases
+      it "removes coins whose value are equal to the inserted value" do
+        machine.return_inserted_value
+        expect(machine.coins).to eq({'quarter' => 1, 'dime' => 1, 'nickel' => 1})
+      end
 
-##### Product is dispensed
+      it "sets the total inserted value back to zero" do
+        expect(machine.inserted_value).to eq 0.4
+      end
+    end
 
-##### Total inserted value is reset
-
-##### Remaining inserted value is given back to the customer
-
+    context "if there is no inserted value" do
+      it "does nothing" do
+        expect(machine.return_inserted_value).to be false
+      end
+    end
+  end
 
 #### WHEN TOTAL INSERTED VALUE IS LESS THAN SELECTED PRODUCT'S VALUE AND PRODUCT IS IN STOCK
 
 ##### Product quantity does not change
-
-##### Total inserted value does not change
-
-
-#### WHEN SELECTED PRODUCT IS NOT IN STOCK
-
-##### Product quantity does not change
-
-##### Product is not dispensed
 
 ##### Total inserted value does not change
 
