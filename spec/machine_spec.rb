@@ -7,7 +7,7 @@ describe Machine do
   let(:dime) { Coin.new({weight: 2.27, diameter: 17.91, thickness: 1.35})}
   let(:nickel) { Coin.new({weight: 5, diameter: 21.21, thickness: 1.95})}
   let(:penny) { Coin.new() }
-  let(:chips) { Product.new({name: "Chips", price: 0.5}) }
+  let(:chips) { Product.new({name: "Chips", price: 50}) }
 
   describe "#initialize" do
     it "initializes with no money inserted" do
@@ -27,7 +27,7 @@ describe Machine do
 
     it "adds the coin's value to the inserted value" do
       machine.add_coin(dime)
-      expect(machine.inserted_value).to eq 0.1
+      expect(machine.inserted_value).to eq 10
     end
 
     it "does not add invalid coins" do
@@ -95,7 +95,7 @@ describe Machine do
         end
 
         it "adjusts inserted value when a product is sold" do
-          expect(machine.inserted_value).to eq(0.25)
+          expect(machine.inserted_value).to eq(25)
         end
 
         context "and more than enough money was inserted" do
@@ -112,12 +112,12 @@ describe Machine do
           machine.try_to_sell(chips)
         end
 
-        xit "does not sell the product" do
+        it "does not sell the product" do
           expect(machine.products).to eq([chips])
         end
 
-        xit "does not change the amount of money inserted" do
-          expect(machine.inserted_value).to eq 0.25
+        it "does not change the amount of money inserted" do
+          expect(machine.inserted_value).to eq 25
         end
       end
     end
@@ -134,7 +134,7 @@ describe Machine do
 
   end
 
-  xdescribe "#return_inserted_value" do
+  describe "#return_inserted_value" do
     context "if there is an inserted value" do
       before(:each) do
         machine.add_coin(quarter)
@@ -144,17 +144,17 @@ describe Machine do
 
       it "removes coins whose value are equal to the inserted value" do
         machine.return_inserted_value
-        expect(machine.coins).to eq({'quarter' => 1, 'dime' => 1, 'nickel' => 1})
+        expect(machine.coins).to eq({'quarter' => 0, 'dime' => 0, 'nickel' => 0})
       end
 
       it "sets the total inserted value back to zero" do
-        expect(machine.inserted_value).to eq 0.4
+        expect(machine.inserted_value).to eq 40
       end
     end
 
     context "if there is no inserted value" do
       it "does nothing" do
-        expect(machine.return_inserted_value).to be false
+        expect(machine.return_inserted_value).to be true
       end
     end
   end
