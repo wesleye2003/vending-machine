@@ -78,34 +78,55 @@ describe Machine do
   end
 
   describe "#try_to_sell" do
-    before(:each) do
-      5.times do
-        machine.add_product(chips)
+    context "when the selected product is in stock" do
+      context "and enough money for the product is inserted" do
+        before(:each) do
+          5.times do
+            machine.add_product(chips)
+          end
+          3.times do
+            machine.add_coin(quarter)
+          end
+          machine.try_to_sell(chips)
+        end
+
+        it "sells the selected product" do
+          expect(machine.products).to eq([chips, chips, chips, chips])
+        end
+
+        it "resets inserted value when a product is sold" do
+          expect(machine.inserted_value).to eq(0)
+        end
+
+        context "and more than enough money was inserted" do
+          xit "gives back change" do
+            expect(machine.coins).to eq({'quarter' => 1, 'dime' => 0, 'nickel' => 0})
+          end
+        end
       end
-      machine.inserted_value = 0.5
-      machine.try_to_sell(chips)
+
+      context "and less than enough money is inserted" do
+        xit "does not sell the product" do
+          expect(machine.products).to eq([chips, chips, chips, chips, chips])
+        end
+
+        xit "does not change the amount of money inserted" do
+
+        end
+      end
     end
 
-    it "sells a product that is in stock when enough money is inserted" do
-      expect(machine.products).to eq([chips, chips, chips, chips])
-    end
-
-    it "resets inserted value when a product is sold" do
-      expect(machine.inserted_value).to eq(0)
+    context "when the product is out of stock" do
+      it "does not change the amount of money inserted" do
+        3.times do
+          machine.add_coin(quarter)
+        end
+        machine.try_to_sell(chips)
+        expect(machine.coins).to eq({'quarter' => 3, 'dime' => 0, 'nickel' => 0})
+      end
     end
 
   end
-
-### Products can be selected for sale
-
-#### WHEN TOTAL INSERTED VALUE IS EQUAL TO SELECTED PRODUCT'S VALUE AND PRODUCT IS IN STOCK
-
-##### Product quantity decreases
-
-##### Product is dispensed
-
-##### Total inserted value is reset
-
 
 #### WHEN TOTAL INSERTED VALUE IS GREATER THAN SELECTED PRODUCT'S VALUE AND PRODUCT IS IN STOCK
 
