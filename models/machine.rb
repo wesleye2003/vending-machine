@@ -17,11 +17,11 @@ class Machine
 
       ##### vvv NEEDS REFACTOR vvv #####
       if coin_type == "quarter"
-        self.inserted_value += 0.25
+        self.inserted_value += 25
       elsif coin_type == "dime"
-        self.inserted_value += 0.1
+        self.inserted_value += 10
       elsif coin_type == "nickel"
-        self.inserted_value += 0.05
+        self.inserted_value += 5
       end
       ##### ^^^ NEEDS REFACTOR ^^^ #####
 
@@ -60,22 +60,22 @@ class Machine
 
   end
 
-  # def return_inserted_value
-  #   if self.inserted_value == 0
-  #     return true
-  #   else
-  #     if self.inserted_value - 0.25 >= 0 && self.coins['quarter'] > 0
-  #       self.inserted_value -= 0.25
-  #       self.coins['quarter'] -= 1
-  #     elsif self.inserted_value - 0.1 >= 0 && self.coins['dime'] > 0
-  #       self.inserted_value -= 0.1
-  #       self.coins['dime'] -= 1
-  #     elsif self.inserted_value - 0.05 >= 0 && self.coins['nickel'] > 0
-  #       self.inserted_value -= 0.05
-  #       self.coins['nickel'] -= 1
-  #     end
-  #     self.return_inserted_value
-  #   end
-  # end
+  def return_inserted_value
+    if self.inserted_value == 0
+      return true
+    else
+      if self.inserted_value - 25 >= 0 && self.coins['quarter'] > 0
+        self.inserted_value -= 25
+        self.coins['quarter'] -= 1
+      elsif self.inserted_value - 10 >= 0 && self.coins['dime'] > 0
+        self.inserted_value -= 10
+        self.coins['dime'] -= 1
+      elsif self.inserted_value - 5 >= 0 && self.coins['nickel'] > 0
+        self.inserted_value -= 5
+        self.coins['nickel'] -= 1
+      end
+      self.return_inserted_value
+    end
+  end
 
 end
