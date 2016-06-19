@@ -28,6 +28,7 @@ class Machine
       end
       ##### ^^^ NEEDS REFACTOR ^^^ #####
 
+      self.show_inserted_value
     else
       return false
     end
@@ -54,6 +55,7 @@ class Machine
       self.inserted_value -= selected_product.price
       self.remove_product(selected_product)
       return_inserted_value
+      self.display = "THANK YOU"
 
     elsif self.in_stock?(selected_product) && self.inserted_value < selected_product.price
       # DO DISPLAY THING

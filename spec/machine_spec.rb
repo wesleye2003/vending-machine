@@ -94,6 +94,10 @@ describe Machine do
           expect(machine.products).to eq([chips, chips, chips, chips])
         end
 
+        it "displays 'THANK YOU' after a purchase" do
+          expect(machine.display).to eq("THANK YOU")
+        end
+
         context "and more than enough money was inserted" do
           it "gives back change" do
             expect(machine.coins).to eq({'quarter' => 2, 'dime' => 0, 'nickel' => 0})
