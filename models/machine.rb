@@ -67,7 +67,7 @@ class Machine
 
   def return_inserted_value
     if @inserted_value == 0
-      return true
+      show_inserted_value
     else
       if @inserted_value - 25 >= 0 && @coins['quarter'] > 0
         @inserted_value -= 25
