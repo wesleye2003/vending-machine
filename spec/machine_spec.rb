@@ -94,13 +94,9 @@ describe Machine do
           expect(machine.products).to eq([chips, chips, chips, chips])
         end
 
-        it "adjusts inserted value when a product is sold" do
-          expect(machine.inserted_value).to eq(25)
-        end
-
         context "and more than enough money was inserted" do
-          xit "gives back change" do
-            expect(machine.coins).to eq({'quarter' => 1, 'dime' => 0, 'nickel' => 0})
+          it "gives back change" do
+            expect(machine.coins).to eq({'quarter' => 2, 'dime' => 0, 'nickel' => 0})
           end
         end
       end
@@ -158,27 +154,4 @@ describe Machine do
       end
     end
   end
-
-#### WHEN TOTAL INSERTED VALUE IS LESS THAN SELECTED PRODUCT'S VALUE AND PRODUCT IS IN STOCK
-
-##### Product quantity does not change
-
-##### Total inserted value does not change
-
-
-
-## Refunds coins
-
-### WHEN TOTAL INSERTED VALUE IS GREATER THAN 0 AND RETURN COINS IS PRESSED
-
-#### Total inserted value is returned to the customer
-
-#### Total inserted value is reset
-
-
-### WHEN TOTAL INSERTED VALUE IS 0 AND RETURN COINS IS PRESSED
-
-#### Nothing is returned to the customer
-
-#### Total inserted value does not change
 end

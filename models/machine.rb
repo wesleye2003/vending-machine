@@ -50,7 +50,7 @@ class Machine
     if self.in_stock?(selected_product) && self.inserted_value >= selected_product.price
       self.inserted_value -= selected_product.price
       self.remove_product(selected_product)
-      # RETURN INSERTED VALUE
+      return_inserted_value
 
     elsif self.in_stock?(selected_product) && self.inserted_value < selected_product.price
       # DO DISPLAY THING
