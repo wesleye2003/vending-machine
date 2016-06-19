@@ -6,4 +6,8 @@ module Display
       self.display = "INSERT COIN"
     end
   end
+
+  def not_enough_for(item)
+    self.display = "PRICE \n #{item.price/100.to_f}"
+  end
 end

@@ -21,4 +21,5 @@ describe Display do
       expect(machine.display).to eq(0.4)
     end
   end
+
 end
