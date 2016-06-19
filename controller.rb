@@ -33,6 +33,7 @@ def start(machine)
       machine.try_to_sell(input[1])
     end
   elsif input == ["return", "coins"]
+    puts "You get #{machine.inserted_value} cents back."
     machine.return_inserted_value
   elsif input[0] == 'quit'
     return

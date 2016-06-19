@@ -54,6 +54,7 @@ class Machine
     if in_stock?(selected_product) && @inserted_value >= selected_product.price
       @inserted_value -= selected_product.price
       remove_product(selected_product)
+      puts "You get #{@inserted_value} cents back."
       return_inserted_value
       @display = "THANK YOU"
 
