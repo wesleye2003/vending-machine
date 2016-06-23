@@ -17,16 +17,7 @@ class Machine
 
     if coin_type
       @coins[coin_type] += 1
-
-      ##### vvv NEEDS REFACTOR vvv #####
-      if coin_type == "quarter"
-        @inserted_value += 25
-      elsif coin_type == "dime"
-        @inserted_value += 10
-      elsif coin_type == "nickel"
-        @inserted_value += 5
-      end
-      ##### ^^^ NEEDS REFACTOR ^^^ #####
+      @inserted_value += coin.value
 
       show_inserted_value
     else
