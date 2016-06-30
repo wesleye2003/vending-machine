@@ -22,22 +22,4 @@ describe Coin do
       expect(quarter.thickness).to eq 1.75
     end
   end
-
-  describe "#valid_type" do
-    it "identifies valid quarters" do
-      expect(Coin.valid_type(quarter)).to eq "quarter"
-    end
-
-    it "identifies valid dimes" do
-      expect(Coin.valid_type(dime)).to eq "dime"
-    end
-
-    it "identifies valid nickels" do
-      expect(Coin.valid_type(nickel)).to eq "nickel"
-    end
-
-    it "identifies non-coins" do
-      expect(Coin.valid_type("rock")).to be false
-    end
-  end
 end

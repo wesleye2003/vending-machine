@@ -15,14 +15,14 @@ describe Machine do
     end
 
     it "initializes with no stored coins" do
-      expect(machine.coins).to eq({'quarter' => 0, 'dime' => 0, 'nickel' => 0})
+      expect(machine.coins).to eq({25 => 0, 10 => 0, 5 => 0})
     end
   end
 
   describe "#add_coin" do
     it "stores the coin in the machine" do
       machine.add_coin(quarter)
-      expect(machine.coins['quarter']).to eq 1
+      expect(machine.coins[25]).to eq 1
     end
 
     it "adds the coin's value to the inserted value" do
@@ -100,7 +100,7 @@ describe Machine do
 
         context "and more than enough money was inserted" do
           it "gives back change" do
-            expect(machine.coins).to eq({'quarter' => 2, 'dime' => 0, 'nickel' => 0})
+            expect(machine.coins).to eq({25 => 2, 10 => 0, 5 => 0})
           end
         end
       end
@@ -128,7 +128,7 @@ describe Machine do
           machine.add_coin(quarter)
         end
         machine.try_to_sell(chips)
-        expect(machine.coins).to eq({'quarter' => 3, 'dime' => 0, 'nickel' => 0})
+        expect(machine.coins).to eq({25 => 3, 10 => 0, 5 => 0})
       end
     end
 
@@ -144,7 +144,7 @@ describe Machine do
 
       it "removes coins whose value are equal to the inserted value" do
         machine.return_inserted_value
-        expect(machine.coins).to eq({'quarter' => 0, 'dime' => 0, 'nickel' => 0})
+        expect(machine.coins).to eq({25 => 0, 10 => 0, 5 => 0})
       end
 
       it "sets the total inserted value back to zero" do
