@@ -14,18 +14,6 @@ class Machine
     @display = ''
   end
 
-  def add_coin(coin)
-    coin_type = CoinSorter.valid_type(coin)
-
-    if coin_type
-      @coins[coin_type] += 1
-      @inserted_value += coin_type
-      show_inserted_value
-    else
-      return false
-    end
-  end
-
   def add_product(product_to_add)
     if product_to_add.kind_of?(Product)
       @products.push(product_to_add)
