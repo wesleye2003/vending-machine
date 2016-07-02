@@ -137,7 +137,7 @@ describe Machine do
 
     context "if there is no inserted value" do
       it "does nothing" do
-        expect(machine.return_inserted_value).to be true
+        expect(machine.return_inserted_value).to eq "INSERT COIN"
       end
     end
   end

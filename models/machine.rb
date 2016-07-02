@@ -34,6 +34,7 @@ class Machine
     if in_stock?(selected_product) && @inserted_value >= selected_product.price
       @inserted_value -= selected_product.price
       remove_product(selected_product)
+      puts "You get #{@inserted_value} cents back."
       return_inserted_value
       @display = "THANK YOU"
 
@@ -47,7 +48,7 @@ class Machine
 
   def return_inserted_value
     if @inserted_value == 0
-      return true
+      show_inserted_value
     else
       if @inserted_value - 25 >= 0 && @coins[25] > 0
         @inserted_value -= 25
